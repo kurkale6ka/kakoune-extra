@@ -1,0 +1,9 @@
+* <c-y/e> in insert mode
+* <c-l> in cmdline
+* yank ring
+* spell checker
+* proper g^a, g^x
+* snippets
+* gd
+* comments
+* ai + signs (repeat -s, *s, #s ...)
