@@ -23,8 +23,17 @@ map global user R '|xclip -o<ret>'
 # Buffer/file shortcuts
 map global user k ':e ~/.config/kak/kakrc<ret>'
 map global user <space> ':b *'
-map global user d ':b *debug*<ret>'
 map global user s ':edit -scratch *scratch*<ret>'
+
+def toggle_debug %{%sh{
+    if [ "$kak_bufname" = '*debug*' ]
+    then
+        printf '%s\n' 'bufferprev'
+    else
+        printf '%s\n' 'buffer *debug*'
+    fi
+}}
+map global user d ':toggle_debug<ret>'
 
 # Increment/decrement numbers
 map global normal <c-a> '"_/-?\d+<ret>|read; echo "$((++REPLY))"<ret>'
