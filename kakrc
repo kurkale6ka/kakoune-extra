@@ -97,7 +97,7 @@ hook global WinSetOption filetype=puppet %{
 }
 
 hook global WinSetOption filetype=cpp %{
-    set buffer lintcmd 'cppcheck -q --enable=all --template="{file}:{line}:1: {severity}: {message}" 2>&1'
+    set buffer lintcmd 'cppcheck --enable=all --template="{file}:{line}:1: {severity}: {message}" 2>&1'
     lint-enable
 }
 
