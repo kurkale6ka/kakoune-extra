@@ -49,6 +49,18 @@ def c %{%sh{ echo "cd '${kak_buffile%/*}'" }}
 hook global BufOpenFifo '\*grep\*' %{ map -- global normal - ':grep-next<ret>' }
 hook global BufOpenFifo '\*make\*' %{ map -- global normal - ':make-next<ret>' }
 
+def spell-replace %{%sh{
+    suggestions=$(echo "$kak_selection" | aspell -a | grep '^&' | cut -d: -f2)
+    menu=$(echo "${suggestions#?}" | awk -F', ' '
+    {
+        for (i=1; i<=NF; i++)
+            printf "%s", "%{"$i"}" "%{exec -itersel c"$i"<esc>be}"
+    }
+    ')
+    printf '%s\n' "try %{ menu -auto-single $menu }"
+}}
+map global user = '<a-i>w:spell-replace<ret>'
+
 hook global WinCreate .* %{
 
     # <ret>: move downwards, on the first non-blank character
@@ -75,12 +87,17 @@ hook global WinCreate .* %{
 }
 
 hook global WinSetOption filetype=sh %{
-    set buffer lintercmd 'shellcheck -fgcc'
+    set buffer lintcmd 'shellcheck -fgcc'
     lint-enable
 }
 
 hook global WinSetOption filetype=puppet %{
-    set buffer lintercmd 'puppet-lint --log-format "%{filename}:%{line}:%{column}: %{kind}: %{message} [%{check}]"'
+    set buffer lintcmd 'puppet-lint --log-format "%{filename}:%{line}:%{column}: %{kind}: %{message} [%{check}]"'
+    lint-enable
+}
+
+hook global WinSetOption filetype=cpp %{
+    set buffer lintcmd 'cppcheck -q --enable=all --template="{file}:{line}:1: {severity}: {message}" 2>&1'
     lint-enable
 }
 
