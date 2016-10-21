@@ -44,6 +44,16 @@ map global normal <c-x> '"_/-?\d+<ret>|read; echo "$((--REPLY))"<ret>'
 map global user a "|gawk 'match($0, /(.*)([0-9]+)(.*)/, a) {i+=1; print a[1] a[2]+i a[3]}'<ret>"
 map global user x "|gawk 'match($0, /(.*)([0-9]+)(.*)/, a) {i-=1; print a[1] a[2]+i a[3]}'<ret>"
 
+#def -hidden star %{%sh{
+#    if [ "$kak_selection" = ? ]
+#    then
+#        printf '%s\n' 'exec "<a-i>w*"'
+#    else
+#        printf '%s\n' 'exec "*"'
+#    fi
+#}}
+#map global normal * ':star<ret>'
+
 # cd to current file's working directory
 def c %{%sh{ echo "cd '${kak_buffile%/*}'" }}
 
@@ -89,7 +99,7 @@ hook global WinCreate .* %{
 }
 
 hook global WinSetOption filetype=sh %{
-    set buffer lintcmd 'shellcheck -fgcc'
+    set buffer lintcmd 'shellcheck -fgcc -Cnever'
     lint-enable
 }
 
