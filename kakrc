@@ -44,8 +44,8 @@ map global user d ':toggle_debug<ret>'
 alias global help doc
 
 # Increment/decrement numbers
-map global normal <c-a> '"_/-?\d+<ret>|read; echo "$((++REPLY))"<ret>'
-map global normal <c-x> '"_/-?\d+<ret>|read; echo "$((--REPLY))"<ret>'
+map global normal <c-a> 'h"_/\d<ret><a-i>na+1<esc>|bc<ret>'
+map global normal <c-x> 'h"_/\d<ret><a-i>na-1<esc>|bc<ret>'
 
 map global user a "|gawk 'match($0, /(.*)([0-9]+)(.*)/, a) {i+=1; print a[1] a[2]+i a[3]}'<ret>"
 map global user x "|gawk 'match($0, /(.*)([0-9]+)(.*)/, a) {i-=1; print a[1] a[2]+i a[3]}'<ret>"
