@@ -50,6 +50,25 @@ map global normal <c-x> 'h"_/\d<ret><a-i>na-1<esc>|bc<ret>'
 map global user a 'a+<c-r>#<esc>|bc<ret>'
 map global user x 'a-<c-r>#<esc>|bc<ret>'
 
+# Visual block selection
+def -hidden vblock %{%sh{
+    sel_start="${kak_selection_desc%,*}"
+    sel_end="${kak_selection_desc#*,}"
+    line_start="${sel_start%.*}"
+    line_end="${sel_end%.*}"
+    col_start="${sel_start#*.}"
+    col_end="${sel_end#*.}"
+    if [ "$line_end" -gt "$line_start" ]
+    then
+        count=$((line_end-line_start))
+        printf '%s\n' "select $line_start.$col_start,$line_start.$col_end; exec ${count}C<a-:><ret>"
+    else
+        count=$((line_start-line_end))
+        printf '%s\n' "select $line_end.$col_start,$line_end.$col_end; exec ${count}C<a-:><ret>"
+    fi
+}}
+map global normal <c-v> ':vblock<ret>'
+
 #def -hidden star %{%sh{
 #    if [ "$kak_selection" = ? ]
 #    then
