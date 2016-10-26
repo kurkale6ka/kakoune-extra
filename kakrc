@@ -31,7 +31,7 @@ map global user k ':e ~/.config/kak/kakrc<ret>'
 map global user <space> ':b *'
 map global user s ':edit -scratch *scratch*<ret>'
 
-def toggle_debug %{%sh{
+def -hidden toggle_debug %{%sh{
     if [ "$kak_bufname" = '*debug*' ]
     then
         printf '%s\n' 'exec "<c-o>"'
