@@ -44,20 +44,31 @@ map global user d ':toggle_debug<ret>'
 alias global help doc
 
 # Increment/decrement numbers
-def -hidden -params 2 inc %{%sh{
+# inc count operator(-/+) serie(true/false)
+def -hidden -params 3 inc %{%sh{
     if [ "$1" = 0 ]
     then
-        count=1
+        if [ "$3" = false ]
+        then
+            count=1
+        else
+            count=0
+        fi
     else
         count="$1"
     fi
-    printf '%s%s\n' 'exec h"_/\d<ret><a-i>na' "$2$count<esc>|bc<ret>"
+    if [ "$3" = false ]
+    then
+        printf '%s%s\n' 'exec h"_/\d<ret><a-i>na' "$2$count<esc>|bc<ret>"
+    else
+        printf '%s%s\n' 'exec h"_/\d<ret><a-i>na' "$2$count$2<c-r>#<esc>|bc<ret>"
+    fi
 }}
-map global normal <c-a> ':inc %val{count} +<ret>'
-map global normal <c-x> ':inc %val{count} -<ret>'
+map global normal <c-a> ':inc %val{count} + "false"<ret>'
+map global normal <c-x> ':inc %val{count} - "false"<ret>'
 
-map global user a 'a+<c-r>#<esc>|bc<ret>'
-map global user x 'a-<c-r>#<esc>|bc<ret>'
+map global user a ':inc %val{count} + "true"<ret>'
+map global user x ':inc %val{count} - "true"<ret>'
 
 # Visual block selections
 def -hidden vblock %{%sh{
