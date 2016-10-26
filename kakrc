@@ -47,8 +47,8 @@ alias global help doc
 map global normal <c-a> 'h"_/\d<ret><a-i>na+1<esc>|bc<ret>'
 map global normal <c-x> 'h"_/\d<ret><a-i>na-1<esc>|bc<ret>'
 
-map global user a "|gawk 'match($0, /(.*)([0-9]+)(.*)/, a) {i+=1; print a[1] a[2]+i a[3]}'<ret>"
-map global user x "|gawk 'match($0, /(.*)([0-9]+)(.*)/, a) {i-=1; print a[1] a[2]+i a[3]}'<ret>"
+map global user a 'a+<c-r>#<esc>|bc<ret>'
+map global user x 'a-<c-r>#<esc>|bc<ret>'
 
 #def -hidden star %{%sh{
 #    if [ "$kak_selection" = ? ]
