@@ -1,9 +1,29 @@
-* <c-y/e> in insert mode
-* <c-l> in cmdline
-* yank ring
-* spell checker
-* proper g^a, g^x
-* snippets
-* gd
-* comments
-* ai + signs (repeat -s, *s, #s ...)
+List of things I miss from Vim
+
+- [ ] snippets
+- [ ] help
+- [ ] history
+- [ ] <c-y/e> in insert mode
+- [ ] <c-l> in cmdline
+- [ ] yank ring
+- [ ] spell checker
+- [ ] proper g^a, g^x
+- [ ] gd
+- [ ] comments
+- [ ] ai + signs (repeat -s, *s, #s ...)
+- [ ] gm
+- [ ] gR
+- [ ] ^d when using :e to list all things
+- [ ] <c-u> in cmdline
+- [ ] surround: cs"' dsb
+- [ ] c<up> d<down> to modify 2 lines
+- [ ] . vs [^\n] in regexes
+- [ ] right click to extend selection
+- [ ] ^v (multiple Cs)
+- [ ] gv
+- [ ] ^l to clear highlighting
+- [ ] arrows to move in menus (-> could be replaced with <down>)
+- [ ] ^c in cmdline
+- [ ] mouse click to move around in insert mode
+- [ ] \z to squeeze
+- [ ] jump to last modification when opening a file
