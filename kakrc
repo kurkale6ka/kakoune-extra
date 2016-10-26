@@ -61,14 +61,14 @@ def -hidden -params 3 inc %{%sh{
     then
         printf '%s%s\n' 'exec h"_/\d<ret><a-i>na' "$2$count<esc>|bc<ret>"
     else
-        printf '%s%s\n' 'exec h"_/\d<ret><a-i>na' "$2$count$2<c-r>#<esc>|bc<ret>"
+        printf '%s%s\n' 'exec h"_/\d<ret><a-i>na' "$2$((count-1))$2<c-r>#<esc>|bc<ret>"
     fi
 }}
-map global normal <c-a> ':inc %val{count} + "false"<ret>'
-map global normal <c-x> ':inc %val{count} - "false"<ret>'
+map global normal <c-a> ':inc %val{count} + false<ret>'
+map global normal <c-x> ':inc %val{count} - false<ret>'
 
-map global user a ':inc %val{count} + "true"<ret>'
-map global user x ':inc %val{count} - "true"<ret>'
+map global user a ':inc %val{count} + true<ret>'
+map global user x ':inc %val{count} - true<ret>'
 
 # Visual block selections
 def -hidden vblock %{%sh{
