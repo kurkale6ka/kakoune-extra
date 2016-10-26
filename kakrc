@@ -44,8 +44,17 @@ map global user d ':toggle_debug<ret>'
 alias global help doc
 
 # Increment/decrement numbers
-map global normal <c-a> 'h"_/\d<ret><a-i>na+1<esc>|bc<ret>'
-map global normal <c-x> 'h"_/\d<ret><a-i>na-1<esc>|bc<ret>'
+def -hidden -params 2 inc %{%sh{
+    if [ "$1" = 0 ]
+    then
+        count=1
+    else
+        count="$1"
+    fi
+    printf '%s%s\n' 'exec h"_/\d<ret><a-i>na' "$2$count<esc>|bc<ret>"
+}}
+map global normal <c-a> ':inc %val{count} +<ret>'
+map global normal <c-x> ':inc %val{count} -<ret>'
 
 map global user a 'a+<c-r>#<esc>|bc<ret>'
 map global user x 'a-<c-r>#<esc>|bc<ret>'
