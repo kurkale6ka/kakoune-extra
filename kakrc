@@ -159,6 +159,11 @@ hook global WinSetOption filetype=cpp %{
     lint-enable
 }
 
+hook global WinSetOption filetype=python %{
+    set buffer lintcmd 'flake8 --filename=* --format="%(path)s:%(row)d:%(col)d: error: %(text)s" 2>&1'
+    lint-enable
+}
+
 map global user n ':lint-next<ret>'
 
 def remove_spaces %{ try %{ exec -draft '%s\h+$<ret>d' } }
@@ -168,7 +173,7 @@ hook global BufWritePre .* %{
     remove_spaces
 }
 
-hook global BufWritePre .*\.(?:z|ba|c|k)?sh(?:rc|_profile)?|.*\.pp %{
+hook global BufWritePre .*\.(?:z|ba|c|k)?sh(?:rc|_profile)?|.*\.pp|.*\.py %{
 
     lint
 }
