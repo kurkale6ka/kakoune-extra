@@ -116,16 +116,7 @@ def c %{%sh{ echo "cd '${kak_buffile%/*}'" }}
 hook global BufOpenFifo '\*grep\*' %{ map -- global normal - ':grep-next<ret>' }
 hook global BufOpenFifo '\*make\*' %{ map -- global normal - ':make-next<ret>' }
 
-def spell-replace %{%sh{
-    suggestions=$(echo "$kak_selection" | aspell -a | grep '^&' | cut -d: -f2)
-    menu=$(echo "${suggestions#?}" | awk -F', ' '
-    {
-        for (i=1; i<=NF; i++)
-            printf "%s", "%{"$i"}" "%{exec -itersel c"$i"<esc>be}"
-    }
-    ')
-    printf '%s\n' "try %{ menu -auto-single $menu }"
-}}
+# Spell check with ,=
 map global user = '<a-i>w:spell-replace<ret>'
 
 hook global WinCreate .* %{
