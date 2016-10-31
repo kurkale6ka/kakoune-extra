@@ -27,3 +27,5 @@ List of things I miss from Vim
 - [ ] mouse click to move around in insert mode
 - [ ] \z to squeeze
 - [ ] jump to last modification when opening a file
+- [ ] number of lines in statusline
+- [ ] ]} ]) - example: delete a closing } and then there is no easy way to go to the previously matching brace
