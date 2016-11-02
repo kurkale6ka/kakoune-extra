@@ -29,3 +29,8 @@ List of things I miss from Vim
 - [ ] jump to last modification when opening a file
 - [ ] number of lines in statusline
 - [ ] ]} ]) - example: delete a closing } and then there is no easy way to go to the previously matching brace
+- [ ] Marks (`H)
+- [ ] Folds
+- [ ] sudo Write
+- [ ] Repeat previous :command (`@:` in Vim)
+- [ ] Paste with indent (`[p`, `]p` in Vim)
