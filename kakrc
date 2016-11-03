@@ -94,6 +94,11 @@ def -hidden vblock %{%sh{
 }}
 map global normal <c-v> ':vblock<ret>'
 
+# Copy from above/below
+# map global insert <c-y> '<c-o><a-;>:exec -draft -itersel kyjP<ret>'
+hook global InsertKey <c-y> %{ exec <c-o>; exec -draft -itersel kyjP }
+hook global InsertKey <c-e> %{ exec <c-o>; exec -draft -itersel jykP }
+
 #def -hidden star %{%sh{
 #    if [ "$kak_selection" = ? ]
 #    then
