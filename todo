@@ -7,7 +7,7 @@ List of things I miss from Vim
 - [ ] <c-l> in cmdline
 - [ ] yank ring
 - [ ] spell checker
-- [ ] proper g^a, g^x
+- [x] proper `^a`, `^x`, `g^a`, `g^x`
 - [ ] gd
 - [ ] comments
 - [ ] ai + signs (repeat -s, *s, #s ...)
@@ -34,3 +34,6 @@ List of things I miss from Vim
 - [ ] sudo Write
 - [ ] Repeat previous :command (`@:` in Vim)
 - [ ] Paste with indent (`[p`, `]p` in Vim)
+- [ ] Go to end of modif `]
+- [ ] <c-x>n to continue completing
+- [ ] Beam cursor in --INSERT--
