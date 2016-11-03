@@ -48,20 +48,15 @@ alias global help doc
 def -hidden -params 3 inc %{%sh{
     if [ "$1" = 0 ]
     then
-        if [ "$3" = false ]
-        then
-            count=1
-        else
-            count=0
-        fi
+        count=1
     else
         count="$1"
     fi
     if [ "$3" = false ]
     then
-        printf '%s%s\n' 'exec h"_/\d<ret><a-i>na' "$2$count<esc>|bc<ret>"
+        printf '%s%s\n' 'exec h"_/\d<ret><a-i>na' "$2($count)<esc>|bc<ret>"
     else
-        printf '%s%s\n' 'exec h"_/\d<ret><a-i>na' "$2$((count-1))$2<c-r>#<esc>|bc<ret>"
+        printf '%s%s\n' 'exec h"_/\d<ret><a-i>na' "$2($((count)))*<c-r>#<esc>|bc<ret>"
     fi
 }}
 map global normal <c-a> ':inc %val{count} + false<ret>'
