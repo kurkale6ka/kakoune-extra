@@ -119,8 +119,8 @@ map global user = '<a-i>w:spell-replace<ret>'
 
 hook global WinCreate .* %{
 
-    # <ret>: move downwards, on the first non-blank character
-    %sh{ bash -c '[[ $kak_buffile == */* ]] && echo "map buffer normal <ret> jI<esc>"' }
+    # <ret>: move downwards, on the first non-blank character (don't map for *buffers*)
+    %sh{ [ -f $kak_buffile ] && echo 'map buffer normal <ret> jI<esc>' }
 
     # {}, <>, ...
     addhl show_matching
@@ -175,7 +175,7 @@ hook global BufWritePre .* %{
 hook global BufOpen .* %{
 
     %sh{
-    if [ "$kak_buffile" = */* ]
+    if [ -f "$kak_buffile" ]
     then
         selections=$(sqlite3 "$XDG_DATA_HOME"/kakoune/info.db "SELECT pos from recent where file = '$kak_buffile';")
         [ -n "$selections" ] && printf '%s\n' "select $selections"
