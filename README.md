@@ -1,5 +1,6 @@
-List of things I miss from Vim
+# List of things I miss from Vim
 
+## TODO:
 - [ ] snippets
 - [ ] help
 - [ ] history
@@ -34,11 +35,11 @@ List of things I miss from Vim
 - [ ] My `<c-ret>` map
 - [ ] Open in insert mode (for git commit messages)
 
-Good:
+## Good:
 - [x] proper `<c-a>`, `<c-x>`, `g<c-a>`, `g<c-x>`
 - [x] `<c-v>` (multiple `C`s)
 
-Almost good:
+## Almost good:
 - [x] `<c-y/e>` in insert mode (edge cases when on EOL)
 - [x] spell checker (`]s` missing)
 - [x] comments
