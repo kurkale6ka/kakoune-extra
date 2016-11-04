@@ -171,6 +171,15 @@ def remove_spaces %{ try %{ exec -draft '%s\h+$<ret>d' } }
 hook global BufWritePre .* %{
 
     remove_spaces
+    %sh{ sqlite3 $XDG_DATA_HOME/kakoune/info.db "INSERT or REPLACE into recent (file, pos, stamp) values ('$kak_buffile', '$kak_selections_desc', '$(date)');" }
+}
+
+hook global BufOpen .* %{
+
+    %sh{
+    selections=$(sqlite3 "$XDG_DATA_HOME"/kakoune/info.db "SELECT pos from recent where file = '$kak_buffile';")
+    [ -n "$selections" ] && printf '%s\n' "select $selections"
+    }
 }
 
 hook global BufWritePre .*\.(?:z|ba|c|k)?sh(?:rc|_profile)?|.*\.pp|.*\.py %{
