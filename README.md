@@ -37,6 +37,7 @@
 - [ ] `{` for navigation
 - [ ] `ga` or `:Unicode`
 - [ ] `^wv`, `^ws`
+- [ ] `gr` go to most recent after a few undos
 
 ## Good:
 - [x] proper `<c-a>`, `<c-x>`, `g<c-a>`, `g<c-x>`
