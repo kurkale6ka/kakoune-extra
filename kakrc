@@ -10,6 +10,8 @@ set global modelinefmt '{title}%val{bufname}{StatusLine} %val{cursor_line}:%val{
 
 map global normal '#' :comment-line<ret>
 
+alias global help doc
+
 map global user q ':quit<ret>'
 map global user f ':set buffer filetype '
 map global user o ':echo %opt{'
@@ -26,11 +28,17 @@ map global user P '!xclip -o<ret>'
 map global user p '<a-!>xclip -o<ret>'
 map global user R '|xclip -o<ret>'
 
+# Copy from above/below
+# map global insert <c-y> '<c-o><a-;>:exec -draft -itersel kyjP<ret>'
+hook global InsertKey <c-y> %{ exec <c-o>; exec -draft -itersel kyjP }
+hook global InsertKey <c-e> %{ exec <c-o>; exec -draft -itersel jykP }
+
 # Buffer/file shortcuts
 map global user k ':e ~/.config/kak/kakrc<ret>'
 map global user <space> ':b *'
 map global user s ':edit -scratch *scratch*<ret>'
 
+# ,s to switch to *debug* and back
 def -hidden toggle_debug %{%sh{
     if [ "$kak_bufname" = '*debug*' ]
     then
@@ -41,7 +49,8 @@ def -hidden toggle_debug %{%sh{
 }}
 map global user d ':toggle_debug<ret>'
 
-alias global help doc
+# @: to repeat last :command (:exec @ to get the default behaviour)
+map global normal @ ':onkey k %{%sh{ [ "$kak_reg_k" = : ] && echo "exec :<lt>up><lt>ret>" }}<ret>'
 
 # Increment/decrement numbers
 # inc count operator(-/+) serie(true/false)
@@ -64,6 +73,10 @@ map global normal <c-x> ':inc %val{count} - false<ret>'
 
 map global user a ':inc %val{count} + true<ret>'
 map global user x ':inc %val{count} - true<ret>'
+# Problem with the below: a count can't be used
+# # g<c-a/x> - goto pending mode => <esc> to go back to normal
+# map global goto <c-a> '<esc>:inc %val{count} + true<ret>'
+# map global goto <c-x> '<esc>:inc %val{count} - true<ret>'
 
 # Visual block selections
 def -hidden vblock %{%sh{
@@ -93,21 +106,6 @@ def -hidden vblock %{%sh{
     }
 }}
 map global normal <c-v> ':vblock<ret>'
-
-# Copy from above/below
-# map global insert <c-y> '<c-o><a-;>:exec -draft -itersel kyjP<ret>'
-hook global InsertKey <c-y> %{ exec <c-o>; exec -draft -itersel kyjP }
-hook global InsertKey <c-e> %{ exec <c-o>; exec -draft -itersel jykP }
-
-#def -hidden star %{%sh{
-#    if [ "$kak_selection" = ? ]
-#    then
-#        printf '%s\n' 'exec "<a-i>w*"'
-#    else
-#        printf '%s\n' 'exec "*"'
-#    fi
-#}}
-#map global normal * ':star<ret>'
 
 # cd to current file's working directory
 def c %{%sh{ echo "cd '${kak_buffile%/*}'" }}
@@ -177,8 +175,11 @@ hook global BufWritePre .* %{
 hook global BufOpen .* %{
 
     %sh{
-    selections=$(sqlite3 "$XDG_DATA_HOME"/kakoune/info.db "SELECT pos from recent where file = '$kak_buffile';")
-    [ -n "$selections" ] && printf '%s\n' "select $selections"
+    if [ "$kak_buffile" = */* ]
+    then
+        selections=$(sqlite3 "$XDG_DATA_HOME"/kakoune/info.db "SELECT pos from recent where file = '$kak_buffile';")
+        [ -n "$selections" ] && printf '%s\n' "select $selections"
+    fi
     }
 }
 
@@ -194,3 +195,14 @@ then
     echo "source '$XDG_CONFIG_HOME/kak/extra.kak'"
 fi
 }
+
+# TODO: *, <a-*> without having to select the word
+# def -hidden star %{%sh{
+#     if [ "$kak_selection" = ? ]
+#     then
+#         printf '%s\n' 'exec "<a-i>w*"'
+#     else
+#         printf '%s\n' 'exec "*"'
+#     fi
+# }}
+# map global normal * ':star<ret>'

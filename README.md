@@ -25,19 +25,23 @@
 - [ ] number of lines in statusline
 - [ ] `]}`, `])` - example: delete a closing `}` and then there is no easy way to go to the previously matching brace
 - [ ] File marks (`` `A`` in Vim)
-- [ ] Folds
+- [ ] Folds (specifically expression ones)
 - [ ] sudo Write
-- [ ] Repeat previous `:command` (`@:` in Vim)
 - [ ] Paste with indent (`[p`, `]p` in Vim)
 - [ ] Go to end of modif `` `]``
 - [ ] `<c-x>n` to continue completing
 - [ ] Beam cursor in --INSERT--
 - [ ] My `<c-ret>` map
 - [ ] Open in insert mode (for git commit messages)
+- [ ] `]<space>` from unimpaired
+- [ ] `{` for navigation
+- [ ] `ga` or `:Unicode`
+- [ ] `^wv`, `^ws`
 
 ## Good:
 - [x] proper `<c-a>`, `<c-x>`, `g<c-a>`, `g<c-x>`
 - [x] `<c-v>` (multiple `C`s)
+- [x] Repeat previous `:command` (`@:` in Vim)
 
 ## Almost good:
 - [x] `<c-y/e>` in insert mode (edge cases when on EOL)
