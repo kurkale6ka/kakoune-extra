@@ -38,6 +38,8 @@
 - [ ] `ga` or `:Unicode`
 - [ ] `^wv`, `^ws`
 - [ ] `gr` go to most recent after a few undos
+- [ ] Go to line begin (`^` in Vim)
+- [ ] Omit `*~` files when completing on `:e` (`:h'wig` in Vim)
 
 ## Good:
 - [x] proper `<c-a>`, `<c-x>`, `g<c-a>`, `g<c-x>`
