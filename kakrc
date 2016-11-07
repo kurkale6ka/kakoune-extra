@@ -22,6 +22,28 @@ map global normal <a-/> '<a-/>(?i)'
 map global normal ? '?(?i)'
 map global normal <a-?> '<a-?>(?i)'
 
+# *, <a-*> without having to select the word
+def -hidden -params 1 star %{%sh{
+    if [ "${#kak_selection}" -eq 1 ]
+    then
+        if [ "$1" = s ]
+        then
+            printf '%s\n' 'exec -save-regs "" "<a-i>w*"'
+        else
+            printf '%s\n' 'exec -save-regs "" "<a-i>w<a-*>/(?i)<c-r>/<ret><a-n>"'
+        fi
+    else
+        if [ "$1" = s ]
+        then
+            printf '%s\n' 'exec -save-regs "" "*"'
+        else
+            printf '%s\n' 'exec -save-regs "" "<a-*>/(?i)<c-r>/<ret><a-n>"'
+        fi
+    fi
+}}
+map global normal * ':star s<ret>'
+map global normal <a-*> ':star ss<ret>'
+
 # Copy/paste interactions with the system clipboard
 map global user y '<a-|>xclip -f | xclip -selection clipboard<ret>'
 map global user P '!xclip -o<ret>'
@@ -196,14 +218,3 @@ then
     echo "source '$XDG_CONFIG_HOME/kak/extra.kak'"
 fi
 }
-
-# TODO: *, <a-*> without having to select the word
-# def -hidden star %{%sh{
-#     if [ "$kak_selection" = ? ]
-#     then
-#         printf '%s\n' 'exec "<a-i>w*"'
-#     else
-#         printf '%s\n' 'exec "*"'
-#     fi
-# }}
-# map global normal * ':star<ret>'
