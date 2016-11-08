@@ -59,7 +59,12 @@ hook global InsertKey <c-e> %{ exec <c-o>; exec -draft -itersel jykP }
 map global user k ':e ~/.config/kak/kakrc<ret>'
 map global user <space> ':b *'
 map global user s ':edit -scratch *scratch*<ret>'
-map global user z ':exec -draft "%<lt>a-s><lt>a-k>^\n<lt>ret><lt>a-m>c<lt>ret><lt>esc>"<ret>'
+
+# Squeeze empty lines. TODO: remove from start/end of buffer too (\A, \Z not working...)
+def -hidden squeeze %{
+    exec -draft '%<a-s><a-k>^\n<ret><a-m>c<ret><esc>'<ret>
+}
+map global user z ':squeeze<ret>'
 
 # ,s to switch to *debug* and back
 def -hidden toggle_debug %{%sh{
