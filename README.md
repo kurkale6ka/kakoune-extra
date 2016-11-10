@@ -40,6 +40,10 @@
 - [ ] `gr` go to most recent after a few undos
 - [ ] Go to line begin (`^` in Vim)
 - [ ] Omit `*~` files when completing on `:e` (`:h'wig` in Vim)
+- [ ] wrap long lines
+- [ ] Vim's `^gj` in insert mode
+- [ ] `:r`
+- [ ] `:put`
 
 ## Good:
 - [x] proper `<c-a>`, `<c-x>`, `g<c-a>`, `g<c-x>`
