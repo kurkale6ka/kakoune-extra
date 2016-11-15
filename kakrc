@@ -49,6 +49,8 @@ map global user y '<a-|>xclip -f | xclip -selection clipboard<ret>'
 map global user P '!xclip -o<ret>'
 map global user p '<a-!>xclip -o<ret>'
 map global user R '|xclip -o<ret>'
+# map global object ]P '<esc>p<a-x>X<a-&>'
+# map global object [P '<esc>P<a-x>K<a-s><a-&>'
 
 # Copy from above/below
 # map global insert <c-y> '<c-o><a-;>:exec -draft -itersel kyjP<ret>'
@@ -197,7 +199,8 @@ def remove_spaces %{ try %{ exec -draft '%s\h+$<ret>d' } }
 hook global BufWritePre .* %{
 
     remove_spaces
-    %sh{ sqlite3 $XDG_DATA_HOME/kakoune/info.db "INSERT or REPLACE into recent (file, pos, stamp) values ('$kak_buffile', '$kak_selections_desc', '$(date)');" }
+    # SELECT file, pos, strftime('%d-%m-%Y %H:%M:%S', stamp, 'unixepoch', 'localtime') as time FROM recent ORDER BY stamp DESC;
+    %sh{ sqlite3 $XDG_DATA_HOME/kakoune/info.db "INSERT or REPLACE into recent (file, pos, stamp) values ('$kak_buffile', '$kak_selections_desc', strftime('%s', 'now'));" }
 }
 
 hook global BufOpen .* %{
