@@ -79,8 +79,8 @@ def -hidden toggle_debug %{%sh{
 }}
 map global user d ':toggle_debug<ret>'
 
-# @: to repeat last :command (:exec @ to get the default behaviour)
-map global normal @ ':onkey k %{%sh{ [ "$kak_reg_k" = : ] && echo "exec :<lt>up><lt>ret>" }}<ret>'
+# # @: to repeat last :command (:exec @ to get the default behaviour)
+# map global normal @ ':onkey k %{%sh{ [ "$kak_reg_k" = : ] && echo "exec :<lt>up><lt>ret>" }}<ret>'
 
 # Increment/decrement numbers
 # inc count operator(-/+) serie(true/false)
@@ -150,7 +150,7 @@ map global user = '<a-i>w:spell-replace<ret>'
 hook global WinCreate .* %{
 
     # <ret>: move downwards, on the first non-blank character (don't map for *buffers*)
-    %sh{ [ -f $kak_buffile ] && echo 'map buffer normal <ret> jI<esc>' }
+    %sh{ [ -f "$kak_buffile" ] && echo 'map buffer normal <ret> jI<esc>' }
 
     # {}, <>, ...
     addhl show_matching
