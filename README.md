@@ -28,6 +28,7 @@
 - [ ] File marks (`` `A`` in Vim)
 - [ ] Folds (specifically expression ones)
 - [ ] sudo Write
+- [ ] write part of a file to another file (``:`<,`>w/path/to/other/file``)
 - [ ] Paste with indent (`[p`, `]p` in Vim)
 - [ ] Go to end of modif `` `]``
 - [ ] `<c-x>n` to continue completing
