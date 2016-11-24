@@ -10,6 +10,7 @@
 - [ ] auto indent + signs (repeat start dash/comment on next line)
 - [ ] `gm`
 - [ ] `gR`
+- [ ] Vim's `3r<ret>`?
 - [ ] `<c-d>` when using :e to list all things
 - [ ] `<c-u>` in cmdline
 - [ ] surround: `cs"'`, `dsb`
@@ -44,6 +45,10 @@
 - [ ] Vim's `^gj` in insert mode
 - [ ] `:r`
 - [ ] `:put`
+- [ ] tag objects
+- [ ] something similar to `}` in visual block mode (<=> enough `C`s to get to the end of the paragraph)
+- [ ] `[[`, `]]` to move between functions
+- [ ] ignore `.file~`s in `:e`
 
 ## Good:
 - [x] proper `<c-a>`, `<c-x>`, `g<c-a>`, `g<c-x>`
