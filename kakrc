@@ -8,6 +8,9 @@ set global scrolloff 2,0
 set global grepcmd 'ag -S --hidden --ignore=.git --ignore=.hg --ignore=.svn'
 set global modelinefmt '{title}%val{bufname}{StatusLine} %val{cursor_line}:%val{cursor_char_column} [{StatusLineValue}%opt{filetype}{StatusLine}]'
 
+# Ignored files
+set global ignored_files '\..+|.+~|.+\.(?:o|so|a|swp)'
+
 map global normal '#' :comment-line<ret>
 
 alias global help doc
