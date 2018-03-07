@@ -44,20 +44,20 @@
 - [ ] `gr` go to most recent after a few undos (`nnoremap gr :later 9999<cr>`, `:help :later`)
 - [ ] Go to line begin (`^` in Vim) (`:help ^`)
 - [ ] Omit `*~` files when completing on `:e` (`:help 'wig` in Vim)
-- [ ] wrap long lines (`:help wrap`)
+- [ ] wrap long lines (`:help 'wrap`)
 - [ ] Vim's `^gj` in insert mode (`:help i^gj`)
 - [ ] read a file `:r`, (`:help :r`)
 - [ ] `:put` (`:help :put`)
 - [ ] tag objects (`:help at`)
 - [ ] `[[`, `]]` to move between functions (`:help [[`)
 
-## Good:
-- [x] proper `<c-a>`, `<c-x>`, `g<c-a>`, `g<c-x>`
-- [x] `<c-v>` (multiple `C`s)
-- [x] Repeat previous `:command` (`@:` in Vim)
-
 ## Almost good:
 - [x] `<c-y/e>` in insert mode (edge cases when on EOL)
 - [x] spell checker (`]s` missing)
 - [x] comments: https://github.com/tpope/vim-commentary
 - [x] jump to last modification when opening a file
+
+## Good:
+- [x] proper `<c-a>`, `<c-x>`, `g<c-a>`, `g<c-x>`
+- [x] `<c-v>` (multiple `C`s)
+- [x] Repeat previous `:command` (`@:` in Vim)
