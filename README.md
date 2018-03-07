@@ -1,6 +1,7 @@
 # List of things I miss from Vim
 
 ## TODO:
+- [ ] proper language to do extensions. https://mywiki.wooledge.org/BashPitfalls (sh way worse)
 - [ ] snippets
 - [ ] help
 - [ ] history
