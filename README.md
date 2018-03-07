@@ -1,40 +1,40 @@
 # List of things I miss from Vim
 
 ## TODO:
-- [ ] proper language to do extensions. https://mywiki.wooledge.org/BashPitfalls (sh way worse)
-- [ ] snippets
-- [ ] help
-- [ ] history
-- [ ] `<c-l>` in cmdline
+- [ ] proper language to do extensions (not UNIX tools/shells). https://mywiki.wooledge.org/BashPitfalls (and `sh` is way worse)
+- [ ] snippets: https://github.com/SirVer/ultisnips
+- [ ] help (`:help`)
+- [ ] history/ies (`:help q:`)
+- [ ] `<c-l>` in cmdline (`:help c_^l`)
 - [ ] yank ring
-- [ ] `gd`
-- [ ] auto indent + signs (repeat start dash/comment on next line)
-- [ ] `gm`
-- [ ] `gR`
-- [ ] Vim's `3r<ret>`?
-- [ ] `<c-d>` when using :e to list all things
-- [ ] `<c-u>` in cmdline
-- [ ] surround: `cs"'`, `dsb`
-- [ ] `c<up>` `d<down>` to modify 2 lines
+- [ ] `gd` (`:help gd`)
+- [ ] auto indent (`:help ai`)+ signs (repeat start dash/comment on next line: (`:help fo-table`))
+- [ ] `gm` (`:help gm`)
+- [ ] `gR` (`:help gR`)
+- [ ] Vim's `3r<ret>` (`replace 3 chars with a single line break`)
+- [ ] `<c-d>` when using :e to list all things (`:help c_^d`)
+- [ ] `<c-u>` in cmdline (`:help c_^u`)
+- [ ] surround: `cs"'`, `dsb`: https://github.com/tpope/vim-surround
+- [ ] `c<up>` `d<down>` to modify 2 lines (`:help c`, `:help d`)
 - [ ] `.` vs `[^\n]` in regexes
 - [ ] right click to extend selection
-- [ ] `gv`
-- [ ] `<c-l>` to clear highlighting
+- [ ] `gv`, visual reselect (`:help gv`)
+- [ ] `<c-l>` to clear highlighting (`nnoremap <silent> <c-l> :nohlsearch<cr><c-l>`, :help:hls`)
 - [ ] arrows to move in menus (`<right>` to confirm could be replaced with `<down>`)
 - [ ] `<c-c>` in cmdline
 - [ ] mouse click to move around in insert mode
-- [ ] `\z` to squeeze
+- [ ] `\z` to squeeze (https://github.com/kurkale6ka/vim/blob/master/autoload/squeeze.vim)
 - [ ] number of lines in statusline
-- [ ] `]}`, `])` - example: delete a closing `}` and then there is no easy way to go to the previously matching brace
-- [ ] File marks (`` `A`` in Vim)
-- [ ] Folds (specifically expression ones)
-- [ ] sudo Write
-- [ ] write part of a file to another file (``:`<,`>w/path/to/other/file``)
-- [ ] Paste with indent (`[p`, `]p` in Vim)
-- [ ] Go to end of modif `` `]``
-- [ ] `<c-x>n` to continue completing
-- [ ] Beam cursor in --INSERT--
-- [ ] My `<c-ret>` map
+- [ ] `]}`, `])` - example: delete a closing `}` and then there is no easy way to go to the previously matching brace (`:help ]}`)
+- [ ] File marks (`` `A`` in Vim, `:help file-marks`)
+- [ ] Folds (specifically expression ones), (`:help folding`)
+- [ ] sudo Write (`command! WriteSudo write !sudo tee % >/dev/null`)
+- [ ] write part of a file to another file (``:`<,`>w/path/to/other/file``, `:help:w_f`)
+- [ ] Paste with indent (`[p`, `]p` in Vim, `:help [p`))
+- [ ] Go to end of modif `` `]`` (``:help `]``)
+- [ ] `<c-x><c-n>` to continue completing (`:help ins-completion`, `:help i^x^n`)
+- [ ] Beam cursor in --INSERT-- mode
+- [ ] My `<c-ret>` map (`imap <c-cr> <esc>o`, `:help o`)
 - [ ] Open in insert mode (for git commit messages)
 - [ ] `]<space>` from unimpaired
 - [ ] `{` for navigation
