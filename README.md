@@ -8,7 +8,7 @@
 - [ ] `<c-l>` in cmdline (`:help c_^l`)
 - [ ] yank ring
 - [ ] `gd` (`:help gd`)
-- [ ] auto indent (`:help 'ai`)+ signs (repeat start dash/comment on next line: (`:help fo-table`))
+- [ ] auto indent (`:help 'ai`) + signs (repeat start dash/comment on next line: (`:help fo-table`))
 - [ ] `gm` (`:help gm`)
 - [ ] `gR` (`:help gR`)
 - [ ] Vim's `3r<ret>` (`replace 3 chars with a single line break`)
@@ -23,14 +23,14 @@
 - [ ] arrows to move in menus (`<right>` to confirm could be replaced with `<down>`)
 - [ ] `<c-c>` in cmdline
 - [ ] mouse click to move around in insert mode
-- [ ] `\z` to squeeze (https://github.com/kurkale6ka/vim/blob/master/autoload/squeeze.vim)
+- [ ] `\z` to squeeze: https://github.com/kurkale6ka/vim/blob/master/autoload/squeeze.vim
 - [ ] number of lines in statusline
 - [ ] `]}`, `])` - example: delete a closing `}` and then there is no easy way to go to the previously matching brace (`:help ]}`)
 - [ ] File marks (`` `A`` in Vim, `:help file-marks`)
 - [ ] Folds (specifically expression ones), (`:help folding`)
 - [ ] sudo Write (`command! WriteSudo write !sudo tee % >/dev/null`)
 - [ ] write part of a file to another file (``:`<,`>w/path/to/other/file``, `:help :w_f`)
-- [ ] Paste with indent (`[p`, `]p` in Vim, `:help [p`))
+- [ ] Paste with indent (`[p`, `]p` in Vim, `:help [p`)
 - [ ] Go to end of modif `` `]`` (``:help `]``)
 - [ ] `<c-x><c-n>` to continue completing (`:help ins-completion`, `:help i^x^n`)
 - [ ] Beam cursor in `--INSERT--` mode
@@ -38,6 +38,7 @@
 - [ ] Open in insert mode (for git commit messages, `:help :startinsert`)
 - [ ] `]<space>` from unimpaired: https://github.com/tpope/vim-unimpaired
 - [ ] `{` for navigation (`:help {`)
+- [ ] something similar to `}` in visual block mode (<=> enough `C`s to get to the end of the paragraph) (`:help }`)
 - [ ] `ga` or `:Unicode` (`:help ga`)
 - [ ] windows splits: `^wv`, `^ws` (`:help ^wv`)
 - [ ] `gr` go to most recent after a few undos (`nnoremap gr :later 9999<cr>`, `:help :later`)
@@ -48,7 +49,6 @@
 - [ ] read a file `:r`, (`:help :r`)
 - [ ] `:put` (`:help :put`)
 - [ ] tag objects (`:help at`)
-- [ ] something similar to `}` in visual block mode (<=> enough `C`s to get to the end of the paragraph) (`:help }`)
 - [ ] `[[`, `]]` to move between functions (`:help [[`)
 
 ## Good:
