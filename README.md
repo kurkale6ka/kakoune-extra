@@ -8,7 +8,7 @@
 - [ ] `<c-l>` in cmdline (`:help c_^l`)
 - [ ] yank ring
 - [ ] `gd` (`:help gd`)
-- [ ] auto indent (`:help ai`)+ signs (repeat start dash/comment on next line: (`:help fo-table`))
+- [ ] auto indent (`:help 'ai`)+ signs (repeat start dash/comment on next line: (`:help fo-table`))
 - [ ] `gm` (`:help gm`)
 - [ ] `gR` (`:help gR`)
 - [ ] Vim's `3r<ret>` (`replace 3 chars with a single line break`)
@@ -19,7 +19,7 @@
 - [ ] `.` vs `[^\n]` in regexes
 - [ ] right click to extend selection
 - [ ] `gv`, visual reselect (`:help gv`)
-- [ ] `<c-l>` to clear highlighting (`nnoremap <silent> <c-l> :nohlsearch<cr><c-l>`, :help:hls`)
+- [ ] `<c-l>` to clear highlighting (`nnoremap <silent> <c-l> :nohlsearch<cr><c-l>`, `:help :hls`)
 - [ ] arrows to move in menus (`<right>` to confirm could be replaced with `<down>`)
 - [ ] `<c-c>` in cmdline
 - [ ] mouse click to move around in insert mode
@@ -29,28 +29,27 @@
 - [ ] File marks (`` `A`` in Vim, `:help file-marks`)
 - [ ] Folds (specifically expression ones), (`:help folding`)
 - [ ] sudo Write (`command! WriteSudo write !sudo tee % >/dev/null`)
-- [ ] write part of a file to another file (``:`<,`>w/path/to/other/file``, `:help:w_f`)
+- [ ] write part of a file to another file (``:`<,`>w/path/to/other/file``, `:help :w_f`)
 - [ ] Paste with indent (`[p`, `]p` in Vim, `:help [p`))
 - [ ] Go to end of modif `` `]`` (``:help `]``)
 - [ ] `<c-x><c-n>` to continue completing (`:help ins-completion`, `:help i^x^n`)
-- [ ] Beam cursor in --INSERT-- mode
+- [ ] Beam cursor in `--INSERT--` mode
 - [ ] My `<c-ret>` map (`imap <c-cr> <esc>o`, `:help o`)
-- [ ] Open in insert mode (for git commit messages)
-- [ ] `]<space>` from unimpaired
-- [ ] `{` for navigation
-- [ ] `ga` or `:Unicode`
-- [ ] `^wv`, `^ws`
-- [ ] `gr` go to most recent after a few undos
-- [ ] Go to line begin (`^` in Vim)
-- [ ] Omit `*~` files when completing on `:e` (`:h'wig` in Vim)
-- [ ] wrap long lines
-- [ ] Vim's `^gj` in insert mode
-- [ ] `:r`
-- [ ] `:put`
-- [ ] tag objects
-- [ ] something similar to `}` in visual block mode (<=> enough `C`s to get to the end of the paragraph)
-- [ ] `[[`, `]]` to move between functions
-- [ ] ignore `.file~`s in `:e`
+- [ ] Open in insert mode (for git commit messages, `:help :startinsert`)
+- [ ] `]<space>` from unimpaired: https://github.com/tpope/vim-unimpaired
+- [ ] `{` for navigation (`:help {`)
+- [ ] `ga` or `:Unicode` (`:help ga`)
+- [ ] windows splits: `^wv`, `^ws` (`:help ^wv`)
+- [ ] `gr` go to most recent after a few undos (`nnoremap gr :later 9999<cr>`, `:help :later`)
+- [ ] Go to line begin (`^` in Vim) (`:help ^`)
+- [ ] Omit `*~` files when completing on `:e` (`:help 'wig` in Vim)
+- [ ] wrap long lines (`:help wrap`)
+- [ ] Vim's `^gj` in insert mode (`:help i^gj`)
+- [ ] read a file `:r`, (`:help :r`)
+- [ ] `:put` (`:help :put`)
+- [ ] tag objects (`:help at`)
+- [ ] something similar to `}` in visual block mode (<=> enough `C`s to get to the end of the paragraph) (`:help }`)
+- [ ] `[[`, `]]` to move between functions (`:help [[`)
 
 ## Good:
 - [x] proper `<c-a>`, `<c-x>`, `g<c-a>`, `g<c-x>`
@@ -60,5 +59,5 @@
 ## Almost good:
 - [x] `<c-y/e>` in insert mode (edge cases when on EOL)
 - [x] spell checker (`]s` missing)
-- [x] comments
+- [x] comments: https://github.com/tpope/vim-commentary
 - [x] jump to last modification when opening a file
