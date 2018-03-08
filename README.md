@@ -58,7 +58,6 @@
 - [ ] https://github.com/tpope/vim-unimpaired
 - [ ] https://github.com/godlygeek/csapprox
 - [ ] https://github.com/SirVer/ultisnips
-- [ ] https://github.com/honza/vim-snippets
 - [ ] https://github.com/jszakmeister/vim-togglecursor
 - [ ] https://github.com/neomake/neomake
 - [ ] https://github.com/junegunn/vim-easy-align
