@@ -50,6 +50,20 @@
 - [ ] `:put` (`:help :put`)
 - [ ] tag objects (`:help at`)
 - [ ] `[[`, `]]` to move between functions (`:help [[`)
+- [ ] https://github.com/tpope/vim-abolish
+- [ ] https://github.com/tpope/vim-commentary
+- [ ] https://github.com/tpope/vim-endwise
+- [ ] https://github.com/tpope/vim-repeat
+- [ ] https://github.com/tpope/vim-surround
+- [ ] https://github.com/tpope/vim-unimpaired
+- [ ] https://github.com/godlygeek/csapprox
+- [ ] https://github.com/SirVer/ultisnips
+- [ ] https://github.com/honza/vim-snippets
+- [ ] https://github.com/jszakmeister/vim-togglecursor
+- [ ] https://github.com/neomake/neomake
+- [ ] https://github.com/junegunn/vim-easy-align
+- [ ] https://github.com/junegunn/fzf.vim
+- [ ] https://github.com/junegunn/vim-plug
 
 ## Almost good:
 - [x] `<c-y/e>` in insert mode (edge cases when on EOL)
